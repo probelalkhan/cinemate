@@ -28,7 +28,7 @@ fun StarRatingBar(
 
     Row(
         modifier = modifier,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         for (i in 1..maxStars) {
             val isSelected = i <= rating
@@ -38,7 +38,7 @@ fun StarRatingBar(
                 imageVector = icon,
                 contentDescription = null,
                 tint = iconTintColor,
-                modifier = Modifier.size(starSize)
+                modifier = Modifier.size(starSize),
             )
 
             if (i < maxStars) {

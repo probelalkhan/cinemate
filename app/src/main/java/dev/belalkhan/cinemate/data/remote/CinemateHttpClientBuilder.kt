@@ -1,4 +1,4 @@
-package dev.belalkhan.cinemate.data.network
+package dev.belalkhan.cinemate.data.remote
 
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
@@ -23,7 +23,6 @@ class CinemateHttpClientBuilder {
     fun host(host: String) = apply { this.host = host }
 
     fun build() = HttpClient(Android) {
-
         expectSuccess = true
 
         engine {
@@ -36,7 +35,6 @@ class CinemateHttpClientBuilder {
                 protocol = this@CinemateHttpClientBuilder.protocol
                 host = this@CinemateHttpClientBuilder.host
             }
-
             header(HttpHeaders.ContentType, "application/json")
         }
 

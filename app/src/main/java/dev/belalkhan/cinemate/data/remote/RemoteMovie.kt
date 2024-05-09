@@ -1,4 +1,4 @@
-package dev.belalkhan.cinemate.data.network
+package dev.belalkhan.cinemate.data.remote
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -45,5 +45,5 @@ data class RemoteMovie(
     val voteAverage: Double,
 
     @SerialName("vote_count")
-    val voteCount: Int
+    val voteCount: Int,
 )

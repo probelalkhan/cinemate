@@ -1,5 +1,4 @@
-package dev.belalkhan.cinemate.data.network
-
+package dev.belalkhan.cinemate.data.remote
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -13,5 +12,5 @@ data class MoviesResponse(
     @SerialName("total_pages")
     val totalPages: Int,
     @SerialName("total_results")
-    val totalResults: Int
+    val totalResults: Int,
 )

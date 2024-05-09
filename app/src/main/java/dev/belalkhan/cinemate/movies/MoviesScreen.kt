@@ -30,9 +30,7 @@ import dev.belalkhan.cinemate.ui.theme.StarRatingBar
 
 @Composable
 fun MoviesScreen() {
-
 }
-
 
 @Composable
 fun MovieList(movies: List<Movie>) {
@@ -43,14 +41,13 @@ fun MovieList(movies: List<Movie>) {
     }
 }
 
-
 @Composable
 fun MovieItem(movie: Movie) {
     ConstraintLayout(
         modifier = Modifier
             .fillMaxWidth()
             .height(240.dp)
-            .padding(vertical = 24.dp)
+            .padding(vertical = 24.dp),
     ) {
         val (cover, card) = createRefs()
 
@@ -70,13 +67,13 @@ fun MovieItem(movie: Movie) {
                 modifier = Modifier
                     .padding(vertical = 6.dp)
                     .fillMaxWidth()
-                    .padding(start = 195.dp)
+                    .padding(start = 195.dp),
             ) {
                 Text(
-                    text = movie.name,
+                    text = movie.title,
                     style = MaterialTheme.typography.titleLarge,
                     maxLines = 2,
-                    overflow = TextOverflow.Ellipsis
+                    overflow = TextOverflow.Ellipsis,
                 )
 
                 StarRatingBar(modifier = Modifier.padding(vertical = 16.dp), rating = movie.rating)
@@ -84,23 +81,22 @@ fun MovieItem(movie: Movie) {
                 Text(
                     color = Color(0xFF415BE9),
                     text = "${movie.voteCount} Votes",
-                    style = MaterialTheme.typography.bodyLarge
+                    style = MaterialTheme.typography.bodyLarge,
                 )
             }
         }
 
         Image(
             painter = painterResource(id = R.drawable.demo_cover),
-            contentDescription = movie.name,
+            contentDescription = movie.title,
             modifier = Modifier
                 .width(194.dp)
                 .aspectRatio(0.85f)
                 .constrainAs(cover) {
                     start.linkTo(card.start, 8.dp)
                     bottom.linkTo(card.bottom, 18.dp)
-                }
+                },
         )
-
     }
 }
 
@@ -112,11 +108,11 @@ private fun MovieItemPreview() {
             MovieItem(
                 Movie(
                     id = 1,
-                    name = "Fast X",
+                    title = "Fast X",
                     cover = "https://dummycoverurl.com",
                     rating = 4f,
-                    voteCount = "2k"
-                )
+                    voteCount = "2k",
+                ),
             )
         }
     }
@@ -130,10 +126,10 @@ private fun MovieListPreview() {
             val movies = (0..10).map {
                 Movie(
                     id = 1,
-                    name = "Fast X",
+                    title = "Fast X",
                     cover = "https://dummycoverurl.com",
                     rating = 4f,
-                    voteCount = "2k"
+                    voteCount = "2k",
                 )
             }
             MovieList(movies)
