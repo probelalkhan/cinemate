@@ -23,21 +23,24 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import dev.belalkhan.cinemate.R
 import dev.belalkhan.cinemate.ui.theme.CinematePreview
 import dev.belalkhan.cinemate.ui.theme.CinemateTheme
 import dev.belalkhan.cinemate.ui.theme.StarRatingBar
 
 @Composable
-fun MoviesScreen() {
+fun MoviesScreen(viewModel: MovieViewModel) {
+    val moviesPagingItems = viewModel.moviesPagingFlow.collectAsLazyPagingItems()
+    MovieList(movies = moviesPagingItems)
 }
 
 @Composable
-fun MovieList(movies: List<Movie>) {
+fun MovieList(movies: LazyPagingItems<Movie>) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-        items(movies) {
-            MovieItem(movie = it)
-        }
+
     }
 }
 

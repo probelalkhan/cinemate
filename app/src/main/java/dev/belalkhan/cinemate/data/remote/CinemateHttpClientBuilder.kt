@@ -12,15 +12,18 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import javax.inject.Inject
 
-class CinemateHttpClientBuilder {
+class CinemateHttpClientBuilder @Inject constructor() {
 
     private lateinit var protocol: URLProtocol
     private lateinit var host: String
-
+    private lateinit var authToken: String
     fun protocol(protocol: URLProtocol) = apply { this.protocol = protocol }
 
     fun host(host: String) = apply { this.host = host }
+
+    fun authToken(authToken: String) = apply { this.authToken = authToken }
 
     fun build() = HttpClient(Android) {
         expectSuccess = true
@@ -36,6 +39,10 @@ class CinemateHttpClientBuilder {
                 host = this@CinemateHttpClientBuilder.host
             }
             header(HttpHeaders.ContentType, "application/json")
+            header(
+                HttpHeaders.Authorization,
+                "Bearer $authToken"
+            )
         }
 
         install(ContentNegotiation) {

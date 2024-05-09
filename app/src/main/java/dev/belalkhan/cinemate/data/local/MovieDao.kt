@@ -8,7 +8,7 @@ import androidx.room.Upsert
 @Dao
 interface MovieDao {
     @Upsert
-    suspend fun upsertAll(planets: List<LocalMovie>)
+    suspend fun upsertAll(movies: List<LocalMovie>)
 
     @Query("SELECT * FROM movies")
     fun pagingSource(): PagingSource<Int, LocalMovie>
