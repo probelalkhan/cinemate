@@ -83,6 +83,7 @@ dependencies {
     implementation(libs.paging.compose)
 
     implementation(libs.ktor.serialization)
+    implementation(libs.coil)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.core.testing)

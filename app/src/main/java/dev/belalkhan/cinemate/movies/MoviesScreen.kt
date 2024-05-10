@@ -1,6 +1,5 @@
 package dev.belalkhan.cinemate.movies
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,7 +20,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -31,7 +29,7 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
-import dev.belalkhan.cinemate.R
+import coil.compose.AsyncImage
 import dev.belalkhan.cinemate.ui.theme.CinematePreview
 import dev.belalkhan.cinemate.ui.theme.CinemateTheme
 import dev.belalkhan.cinemate.ui.theme.StarRatingBar
@@ -119,8 +117,8 @@ fun MovieItem(movie: Movie) {
             }
         }
 
-        Image(
-            painter = painterResource(id = R.drawable.demo_cover),
+        AsyncImage(
+            model = movie.cover,
             contentDescription = movie.title,
             modifier = Modifier
                 .width(194.dp)

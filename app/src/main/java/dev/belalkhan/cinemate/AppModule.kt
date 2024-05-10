@@ -39,7 +39,7 @@ object AppModule {
         db: MovieDatabase,
         mediator: MovieRemoteMediator,
     ): Pager<Int, LocalMovie> = Pager(
-        config = PagingConfig(pageSize = 20),
+        config = PagingConfig(pageSize = 10),
         remoteMediator = mediator,
         pagingSourceFactory = { db.movieDao.pagingSource() },
     )
