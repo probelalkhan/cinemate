@@ -41,7 +41,7 @@ class CinemateHttpClientBuilder @Inject constructor() {
             header(HttpHeaders.ContentType, "application/json")
             header(
                 HttpHeaders.Authorization,
-                "Bearer $authToken"
+                "Bearer $authToken",
             )
         }
 

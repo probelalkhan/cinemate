@@ -13,10 +13,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    pager: Pager<Int, LocalMovie>
+    pager: Pager<Int, LocalMovie>,
 ) : ViewModel() {
 
     val moviesPagingFlow =
         pager.flow.map { it.map { localMovie -> localMovie.toMovie() } }.cachedIn(viewModelScope)
-
 }

@@ -1,12 +1,14 @@
 package dev.belalkhan.cinemate.data.local
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 @Entity(tableName = "movies")
 data class LocalMovie(
+    @PrimaryKey(autoGenerate = false)
     val id: Int,
     val adult: Boolean,
-    val backdropPath: String,
+    val backdropPath: String?,
     val genreIds: String,
     val originalLanguage: String,
     val originalTitle: String,
