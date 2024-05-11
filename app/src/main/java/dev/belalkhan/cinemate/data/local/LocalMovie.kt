@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "movies")
 data class LocalMovie(
-    @PrimaryKey(autoGenerate = false)
     val id: Int,
     val adult: Boolean,
     val backdropPath: String?,
@@ -20,4 +19,7 @@ data class LocalMovie(
     val video: Boolean,
     val voteAverage: Double,
     val voteCount: Int,
-)
+) {
+    @PrimaryKey(autoGenerate = true)
+    var localId: Int = 0
+}

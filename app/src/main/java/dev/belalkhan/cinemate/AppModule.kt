@@ -22,7 +22,7 @@ object AppModule {
     @Provides
     fun providesHttpClient(builder: CinemateHttpClientBuilder): HttpClient = builder
         .protocol(URLProtocol.HTTPS)
-        .host("api.themoviedb.org/3/")
+        .host("api.themoviedb.org/3")
         .authToken(AUTH_TOKEN)
         .build()
 

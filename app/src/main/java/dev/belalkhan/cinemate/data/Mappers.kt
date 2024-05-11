@@ -22,7 +22,7 @@ fun RemoteMovie.toLocalMovie() = LocalMovie(
 )
 
 fun LocalMovie.toMovie() = Movie(
-    id = this.id,
+    id = this.localId,
     title = this.originalTitle,
     cover = "https://image.tmdb.org/t/p/w500${this.posterPath}",
     rating = this.voteAverage.toFloat(),

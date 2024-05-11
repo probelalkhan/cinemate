@@ -15,7 +15,7 @@ class MovieRemoteMediator @Inject constructor(
     private val repository: MovieRepository,
 ) : RemoteMediator<Int, LocalMovie>() {
 
-    override suspend fun initialize(): InitializeAction = InitializeAction.SKIP_INITIAL_REFRESH
+    override suspend fun initialize(): InitializeAction = InitializeAction.LAUNCH_INITIAL_REFRESH
 
     override suspend fun load(
         loadType: LoadType,
