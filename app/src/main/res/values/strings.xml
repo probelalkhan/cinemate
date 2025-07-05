@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Cinemate</string>
+    <string name="votes_count">%d votes</string>
+</resources>
